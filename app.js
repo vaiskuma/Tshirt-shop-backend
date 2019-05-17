@@ -5,6 +5,7 @@ const app = express();
 const tshirts = require('./db/db');
 
 var cors = require('cors')
+var port = process.env.PORT || 8080;
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -18,7 +19,7 @@ app.use(allowCrossDomain);
 
 // Setup the server
 const server = require('http').createServer(app);
-server.listen(3000, () => {
+server.listen(port, () => {
     console.log("Server running on port", server.address().port);
     console.log(tshirts)
    
